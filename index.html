@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer Engle - Professional Resume</title>    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #e0d6ca;
+            line-height: 1.6;
+            background-color: #1a1a1a;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #252525;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+          .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #e78c46;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #e78c46;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: #e78c46;
+            margin: 25px 0 15px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+          .job-title, .education-degree {
+            font-weight: bold;
+            color: #c9bdaa;
+        }
+        
+        .company-name, .school-name {
+            color: #e78c46;
+            font-weight: bold;
+        }
+        
+        .date-range {
+            font-style: italic;
+            color: #a99e8c;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            margin: 15px 0;
+            text-align: center;
+        }
+          .contact-info a {
+            color: #e78c46;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            background-color: #3a3127;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            display: inline-block;
+            color: #e0d6ca;
+        }
+        
+        .certifications-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        
+        .cert-item {
+            margin-bottom: 10px;
+        }
+          .recommendations {
+            font-style: italic;
+            background-color: #302923;
+            padding: 15px;
+            border-left: 3px solid #e78c46;
+        }
+        
+        .recommendation-author {
+            font-weight: bold;
+            font-style: normal;
+            margin-top: 10px;
+            text-align: right;
+            color: #c9bdaa;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #a99e8c;
+        }
+          @media print {
+            body {
+                background-color: white;
+                color: #000;
+                padding: 0;
+            }
+            
+            .resume-container {
+                background-color: white;
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            h1, h2, .company-name, .school-name, .contact-info a {
+                color: #000;
+            }
+
+            .skill-item {
+                background-color: #eee;
+                color: #000;
+            }
+
+            .recommendations {
+                background-color: #f5f5f5;
+                border-left-color: #666;
+            }
+        }
+
+        /* Comments Section Styles */
+        .comments-section {
+            margin-top: 50px;
+            border-top: 1px solid #444;
+            padding-top: 30px;
+        }
+
+        .comments-heading {
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            background-color: #302923;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #e78c46;
+        }
+
+        .comment-date {
+            color: #a99e8c;
+            font-size: 0.9em;
+        }
+
+        .comment-content {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .comment-action {
+            background: none;
+            border: none;
+            color: #a99e8c;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .comment-action:hover {
+            color: #e78c46;
+        }
+
+        .comment-action i {
+            font-size: 18px;
+        }
+
+        .comment-action.liked {
+            color: #e78c46;
+        }
+
+        .comment-form {
+            margin-top: 30px;
+        }
+
+        .comment-input {
+            width: 100%;
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 12px 15px;
+            color: #e0d6ca;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-color: #e78c46;
+        }
+
+        .comment-button {
+            background-color: #e78c46;
+            color: #252525;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .comment-button:hover {
+            background-color: #f09a58;
+        }
+
+        .reply-form {
+            margin-left: 30px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .reply {
+            margin-left: 30px;
+            background-color: #2a2520;
+            border-left: 2px solid #e78c46;
+        }
+    </style>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <!-- Replace with your actual photo URL -->
+            <img src="your-photo.jpg" alt="Jennifer Engle" class="profile-photo">            <h1>Jennifer Engle</h1>
+            <p class="job-title">Data Integrity Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:jennifer.engle@example.com">jennifer.engle@example.com</a> |
+                <a href="https://www.linkedin.com/in/jennifer-engle/" target="_blank">LinkedIn Profile</a> |
+                <a href="tel:+11234567890">123-456-7890</a> |
+                Location: Kansas City, MO
+            </div>
+        </header>
+          <section class="section">
+            <h2>Professional Summary</h2>
+            <p>
+                Experienced data integrity specialist with a background in process improvement, requirements gathering, and system administration. 
+                Looking to transition into an Analyst position to assist and support teams by gathering requirements and improving processes 
+                to find better efficiencies that meet enterprise and team goals. Strong focus on customer support, data management, 
+                and process documentation with Scrum Fundamentals certification.
+            </p>
+        </section>
+          <section class="section">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Data Integrity – Administrative Resources</h3>
+                <p class="company-name">H&R Block World Headquarters</p>
+                <p class="date-range">April 2018 - Present</p>
+                <ul>
+                    <li>Process and delegate incidents through a ticketing system including change requests on contracts, banking and office information for national and international tax professionals within the Common Database (CDB)</li>
+                    <li>Open and Close districts and branch offices within CDB and WebCDB</li>
+                    <li>Create and maintain process guidelines for both databases</li>
+                    <li>Assist in the annual realignment of districts and branch offices</li>
+                    <li>Work with Acquisitions & Development and Legal teams to update Franchise Contracts, including additional addendums and sales back to the company</li>
+                    <li>Provide business requirements for the CDB Migration to WebCDB</li>
+                    <li>Member of the Orgs & Hierarchy Workday ADO group</li>
+                    <li>Scrum Fundamentals Certification achieved April 2020 to provide better feedback during Scrum and working sessions</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Customer Support Specialist - Pilot</h3>
+                <p class="company-name">GDIT</p>
+                <p class="date-range">October 2017 - March 2018</p>
+                <ul>
+                    <li>First line of communication with consumers for a client</li>
+                    <li>Assist consumers wanting to get logged into their online account</li>
+                    <li>Troubleshoot & reset consumers' accounts when issues occur</li>
+                    <li>Transfer calls to appropriate departments if routed incorrectly or they have additional questions</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">System Administrator for Robotics Process Automation</h3>
+                <p class="company-name">SE2</p>
+                <p class="date-range">July 2016 - September 2017</p>
+                <ul>
+                    <li>Maintain existing software for Automation Anywhere to record & review errors, to adapt it to new hardware, or to upgrade interfaces and improve performance</li>
+                    <li>Store, retrieve, and manipulate data for analysis of system capabilities and requirements</li>
+                    <li>Consult with customers or other departments on project status, proposals or technical issues such as 'bot' failures or maintenance</li>
+                    <li>Perform unit testing for automations and validate procedures</li>
+                    <li>Monitor the functionality of equipment to ensure systems operate in conformance with specifications</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Account Service Representative</h3>
+                <p class="company-name">SE2</p>
+                <p class="date-range">November 2013 - July 2016</p>
+                <ul>
+                    <li>Check to ensure that appropriate changes were made to resolve customer or agents' problems</li>
+                    <li>Refer unresolved customer or agent grievances to designated departments for further investigation</li>
+                    <li>Confer with customers by telephone to provide information about active insurance contracts, process new insurance contracts, cancel contracts and obtain details of complaints</li>
+                    <li>Explain changes in contract provisions to customers</li>
+                    <li>Understand and relay prospectus changes to agents and customers</li>
+                </ul>
+            </div>
+        </section>
+          <section class="section">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Bachelor's Degree of Fine Arts in Graphic Design</h3>
+                <p class="school-name">Drake University</p>
+                <p class="date-range">May 2007</p>
+                <p>Des Moines, IA</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Scrum Fundamentals Certification</h3>
+                <p class="school-name">Scrum certification</p>
+                <p class="date-range">April 2020</p>
+            </div>
+        </section>
+          <section class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li class="skill-item">Data Integrity Management</li>
+                <li class="skill-item">Process Documentation</li>
+                <li class="skill-item">Requirements Gathering</li>
+                <li class="skill-item">Ticketing Systems</li>
+                <li class="skill-item">Scrum Methodology</li>
+                <li class="skill-item">Database Management</li>
+                <li class="skill-item">Customer Support</li>
+                <li class="skill-item">Robotic Process Automation</li>
+                <li class="skill-item">System Administration</li>
+                <li class="skill-item">Process Improvement</li>
+                <li class="skill-item">Contract Management</li>
+                <li class="skill-item">Change Management</li>
+                <li class="skill-item">Team Collaboration</li>
+                <li class="skill-item">Troubleshooting</li>
+                <li class="skill-item">Graphic Design</li>
+            </ul>
+        </section>
+          <section class="section">
+            <h2>Certifications</h2>
+            <ul class="certifications-list">
+                <li class="cert-item">
+                    <span class="certification-name">Scrum Fundamentals Certification</span> - Achieved April 2020
+                </li>
+            </ul>
+        </section>
+          <section class="section">
+            <h2>Professional Goals</h2>
+            
+            <div class="recommendations">
+                "I'm looking to transition into an Analyst position where I can assist and support teams by gathering requirements and improving processes to find better efficiencies to meet enterprise and team goals. My background in data integrity, process documentation, and system administration has prepared me to excel in roles that require analytical thinking and process improvement."
+                <p class="recommendation-author">- Jennifer Engle</p>
+            </div>
+        </section>
+          <section class="comments-section">
+            <h2 class="comments-heading">Comments</h2>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">Alex Thompson</span>
+                    <span class="comment-date">June 10, 2025</span>
+                </div>
+                <div class="comment-content">
+                    <p>I worked with Jennifer on the MarketingAI project. She has exceptional leadership skills and technical knowledge. Truly a pleasure to collaborate with!</p>
+                </div>
+                <div class="comment-actions">
+                    <button class="comment-action like-action">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span class="like-count">3</span>
+                    </button>
+                    <button class="comment-action reply-action">
+                        <i class="fas fa-reply"></i>
+                        Reply
+                    </button>
+                </div>
+                <div class="reply-form">
+                    <textarea class="comment-input" placeholder="Write your reply here..."></textarea>
+                    <button class="comment-button">Reply</button>
+                </div>
+                
+                <div class="comment reply">
+                    <div class="comment-header">
+                        <span class="comment-author">Jennifer Engle</span>
+                        <span class="comment-date">June 11, 2025</span>
+                    </div>
+                    <div class="comment-content">
+                        <p>Thank you so much, Alex! It was great working with you too. I really appreciated your insights on the project.</p>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action like-action liked">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span class="like-count">2</span>
+                        </button>
+                        <button class="comment-action reply-action">
+                            <i class="fas fa-reply"></i>
+                            Reply
+                        </button>
+                    </div>
+                    <div class="reply-form">
+                        <textarea class="comment-input" placeholder="Write your reply here..."></textarea>
+                        <button class="comment-button">Reply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">Sarah Chen</span>
+                    <span class="comment-date">June 8, 2025</span>
+                </div>
+                <div class="comment-content">
+                    <p>Jennifer's presentation at the Digital Marketing Conference was outstanding! She shared some really innovative ideas about integrating AI into content strategies.</p>
+                </div>
+                <div class="comment-actions">
+                    <button class="comment-action like-action">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span class="like-count">5</span>
+                    </button>
+                    <button class="comment-action reply-action">
+                        <i class="fas fa-reply"></i>
+                        Reply
+                    </button>
+                </div>
+                <div class="reply-form">
+                    <textarea class="comment-input" placeholder="Write your reply here..."></textarea>
+                    <button class="comment-button">Reply</button>
+                </div>
+            </div>
+            
+            <div class="comment-form">
+                <h3>Leave a Comment</h3>
+                <textarea class="comment-input" placeholder="Write your comment here..."></textarea>
+                <button class="comment-button">Post Comment</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>Last updated: June 13, 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Comment functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Like button functionality
+            const likeButtons = document.querySelectorAll('.like-action');
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('liked');
+                    const likeCount = this.querySelector('.like-count');
+                    let count = parseInt(likeCount.innerText);
+                    
+                    if (this.classList.contains('liked')) {
+                        likeCount.innerText = count + 1;
+                    } else {
+                        likeCount.innerText = count - 1;
+                    }
+                });
+            });
+            
+            // Reply button functionality
+            const replyButtons = document.querySelectorAll('.reply-action');
+            replyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const replyForm = this.parentElement.nextElementSibling;
+                    
+                    // Toggle the reply form
+                    if (replyForm.style.display === 'block') {
+                        replyForm.style.display = 'none';
+                    } else {
+                        replyForm.style.display = 'block';
+                    }
+                });
+            });
+            
+            // New comment functionality
+            const commentForm = document.querySelector('.comment-form');
+            const commentInput = commentForm.querySelector('.comment-input');
+            const commentButton = commentForm.querySelector('.comment-button');
+            
+            commentButton.addEventListener('click', function() {
+                const commentText = commentInput.value.trim();
+                
+                if (commentText !== '') {
+                    // Create a new comment
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    
+                    const currentDate = new Date();
+                    const formattedDate = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+                    
+                    newComment.innerHTML = `
+                        <div class="comment-header">
+                            <span class="comment-author">You</span>
+                            <span class="comment-date">${formattedDate}</span>
+                        </div>
+                        <div class="comment-content">
+                            <p>${commentText}</p>
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action like-action">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span class="like-count">0</span>
+                            </button>
+                            <button class="comment-action reply-action">
+                                <i class="fas fa-reply"></i>
+                                Reply
+                            </button>
+                        </div>
+                        <div class="reply-form">
+                            <textarea class="comment-input" placeholder="Write your reply here..."></textarea>
+                            <button class="comment-button">Reply</button>
+                        </div>
+                    `;
+                    
+                    // Add the new comment to the comments section
+                    const commentsSection = document.querySelector('.comments-section');
+                    commentsSection.insertBefore(newComment, commentForm);
+                    
+                    // Clear the input
+                    commentInput.value = '';
+                    
+                    // Add event listeners to the new buttons
+                    const newLikeButton = newComment.querySelector('.like-action');
+                    const newReplyButton = newComment.querySelector('.reply-action');
+                    
+                    newLikeButton.addEventListener('click', function() {
+                        this.classList.toggle('liked');
+                        const likeCount = this.querySelector('.like-count');
+                        let count = parseInt(likeCount.innerText);
+                        
+                        if (this.classList.contains('liked')) {
+                            likeCount.innerText = count + 1;
+                        } else {
+                            likeCount.innerText = count - 1;
+                        }
+                    });
+                    
+                    newReplyButton.addEventListener('click', function() {
+                        const replyForm = this.parentElement.nextElementSibling;
+                          
+                        if (replyForm.style.display === 'block') {
+                            replyForm.style.display = 'none';
+                        } else {
+                            replyForm.style.display = 'block';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
